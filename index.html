@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Control de presencia SEGEN ALA14</title>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Control de presencia SEGEN ALA14 — Guardias y días adicionales</title>
 <style>
 :root{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#19293e;background:#f3f6fb}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1440px;padding:26px 18px;margin:0 auto}.top{display:flex;justify-content:space-between;align-items:center;gap:14px}.brand{display:flex;align-items:center;gap:12px}.mark{width:44px;height:44px;border-radius:12px;background:#172a45;color:#fff;display:grid;place-items:center;font-size:24px}.muted{color:#687b92}.small{font-size:13px}.head{margin:0;font-size:25px;letter-spacing:-.04em}.sub{margin:4px 0 0;font-size:14px}.card{background:#fff;border:1px solid #e1e8f1;border-radius:18px;padding:22px;margin-top:22px;box-shadow:0 3px 14px #19293e06}h2{font-size:19px;margin:0 0 12px}.hidden{display:none!important}label{font-size:14px;font-weight:650;display:block;margin:14px 0 6px}input{width:100%;padding:13px;border:1px solid #cad5e2;border-radius:10px;font-size:16px}button{background:#244f89;color:white;border:0;border-radius:11px;padding:12px 19px;font-size:14px;font-weight:650;cursor:pointer}button.ghost{background:#eaf0f8;color:#25476c}button:disabled{opacity:.55;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #9abef5;outline-offset:2px}.form{max-width:450px}.notice{padding:13px 15px;background:#eaf2fb;border-radius:12px;margin-top:16px;white-space:pre-wrap}.notice.error{background:#fff0f0;color:#ab2631}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.metric{padding:18px;background:white;border:1px solid #e1e8f1;border-radius:16px}.metric strong{display:block;font-size:36px;letter-spacing:-.04em;margin-top:6px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.tag{display:inline-block;border-radius:99px;font-size:12px;padding:5px 10px;background:#e5f4ec;color:#187248;font-weight:650}.tag.pending{background:#fff3df;color:#996415}.tag.situ{background:#e7efff;color:#31558d}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:13px 11px;border-bottom:1px solid #eaf0f6}th{color:#728196;font-size:12px;text-transform:uppercase;letter-spacing:.05em}tbody tr:hover{background:#f8fafd}.fineprint{font-size:13px;color:#63748b;line-height:1.55;margin-top:20px}a{color:#244f89}@media(max-width:670px){.cards{grid-template-columns:1fr 1fr}.metric:last-child{grid-column:1 / -1}.top{align-items:flex-start}.head{font-size:21px}}
 
@@ -238,7 +238,7 @@ html,body {background:#e0e7f0;}
 .monthly-state-editor select{min-width:210px;width:auto;max-width:100%;height:39px}
 .monthly-state-editor .monthly-state-fields button{height:39px}
 .monthly-grant-fields{display:flex;align-items:end;gap:10px;flex-wrap:wrap}.monthly-grant-fields input{height:39px;max-width:100%;box-sizing:border-box;padding:7px 9px;border:1px solid #cad5e2;border-radius:8px;font:inherit}.monthly-grant-fields input[type="number"]{width:130px}.monthly-grant-fields input[type="text"]{width:min(400px,90vw)}
-/* V6.15.16: la concesión de graciables se presenta debajo del estado,
+/* V6.15.16: la concesión de permisos extraordinarios se presenta debajo del estado,
    sin tapar P, P/G, BJ, AP, G, etc.; en una misma casilla se ven ambos. */
 .monthly-grant-key{background:#fff0d0;color:#805412;border:1px solid #bd913f}
 .monthly-grant-cell{outline:2px dashed #c59b3b;outline-offset:-2px}
@@ -323,25 +323,25 @@ html,body {background:#e0e7f0;}
   <div class="guard-layout">
     <div class="guard-stack hidden" hidden aria-hidden="true">
       <section class="card">
-        <h2>Conceder días graciables</h2>
-        <p class="muted small">Las guardias se registran exclusivamente en <strong>Registro de personal → Editar estados</strong>. Aquí puedes conceder días graciables, consultar saldos e historial.</p>
+        <h2>Conceder permisos extraordinarios</h2>
+        <p class="muted small">Las guardias se registran exclusivamente en <strong>Registro de personal → Editar estados</strong>. Aquí puedes conceder permisos extraordinarios, consultar saldos e historial.</p>
         <form id="guardForm" class="guard-controls">
           <div class="wide"><label for="guardPerson">Trabajador</label><select id="guardPerson" required><option value="">Selecciona un trabajador</option></select></div>
-          <div class="wide hidden"><label for="guardEntryType">Tipo de registro</label><select id="guardEntryType"><option value="graciable" selected>Conceder días graciables</option></select></div>
+          <div class="wide hidden"><label for="guardEntryType">Tipo de registro</label><select id="guardEntryType"><option value="graciable" selected>Conceder permisos extraordinarios</option></select></div>
           <div class="grant-inline-field"><label for="guardDate" id="guardDateLabel">Fecha de la guardia (admite futuras)</label><input type="date" id="guardDate" required></div>
-          <div id="graciousQuantityField" class="grant-inline-field hidden"><label for="graciousQuantity">Número de días graciables</label><input type="number" id="graciousQuantity" min="1" max="365" step="1" value="1"></div>
+          <div id="graciousQuantityField" class="grant-inline-field hidden"><label for="graciousQuantity">Número de permisos extraordinarios</label><input type="number" id="graciousQuantity" min="1" max="365" step="1" value="1"></div>
           <div id="graciousReasonField" class="wide hidden"><label for="graciousReason">Motivo de la concesión</label><input id="graciousReason" maxlength="120" placeholder="Ej.: Reconocimiento por colaboración extraordinaria"><p class="guard-hint">Descripción breve (máximo 120 caracteres).</p></div>
           <div class="wide"><button type="submit" id="guardSave">+ Registrar guardia y generar 1 saliente</button></div>
         </form>
         <div id="guardMessage" class="manage-msg" role="status" aria-live="polite"></div>
-        <p class="guard-hint">Las guardias y los días de disfrute se gestionan desde Registro de personal → Editar estados. Aquí puedes conceder días graciables y consultar su historial.</p>
+        <p class="guard-hint">Las guardias y los días de disfrute se gestionan desde Registro de personal → Editar estados. Aquí puedes conceder permisos extraordinarios y consultar su historial.</p>
       </section>
     </div>
     <section class="card">
-      <div class="toolbar"><div><h2>Saldo de guardias del personal</h2><p class="muted small">Las guardias del año seleccionado y los días pendientes se consultan aquí. Concede y disfruta días graciables desde Registro de personal → Editar estados. Los saldos pendientes se acumulan entre años.</p></div></div>
+      <div class="toolbar"><div><h2>Saldos de guardias y permisos extraordinarios</h2><p class="muted small">Las guardias del año seleccionado y los días pendientes se consultan aquí. Concede y disfruta permisos extraordinarios desde Registro de personal → Editar estados. Los saldos pendientes se acumulan entre años.</p></div></div>
       <div class="toolbar"><label for="guardSearch">Buscar trabajador</label></div>
       <input class="guard-search" type="search" id="guardSearch" placeholder="Nombre o dependencia">
-      <div class="tablewrap guard-table"><table><colgroup><col style="width:34%"><col style="width:22%"><col style="width:22%"><col style="width:22%"></colgroup><thead><tr><th>Trabajador</th><th id="guardAnnualColumn">Guardias del año</th><th>Saliente pendiente</th><th>Graciables pendientes</th></tr></thead><tbody id="guardRows"><tr><td colspan="4">Abre esta pestaña para consultar los saldos.</td></tr></tbody></table></div>
+      <div class="tablewrap guard-table"><table><colgroup><col style="width:30%"><col style="width:16%"><col style="width:17%"><col style="width:18%"><col style="width:19%"></colgroup><thead><tr><th>Trabajador</th><th id="guardAnnualColumn">Guardias del año</th><th>Salientes pendientes</th><th>Días adicionales pendientes</th><th>Permisos extraordinarios pendientes</th></tr></thead><tbody id="guardRows"><tr><td colspan="5">Abre esta pestaña para consultar los saldos.</td></tr></tbody></table></div>
       <section class="guard-person-panel" id="guardDetail" aria-live="polite">
         <p class="guard-empty">Selecciona una fila para consultar los saldos e historial de ese trabajador. Para modificar estados, utiliza Registro de personal.</p>
       </section>
@@ -350,7 +350,7 @@ html,body {background:#e0e7f0;}
         <p class="guard-history-help">El historial se consulta por año. Los saldos pendientes se acumulan automáticamente entre años y no se pierden al cambiar de ejercicio.</p>
         <div id="guardHistory" class="guard-log"></div>
       </div>
-      <p class="guard-hint">Al comenzar un año nuevo, el contador de guardias del ejercicio empieza en cero, pero los salientes y días graciables pendientes se arrastran del año anterior. El historial permite consultar los movimientos de cada año. Cada guardia genera únicamente 1 saliente, incluso si tiene fecha futura. Los días adicionales se registran como situación administrativa desde Registro, sin modificar los saldos de salientes ni graciables. Verifica la política de disfrute aplicable a la unidad.</p>
+      <p class="guard-hint">Al comenzar un año nuevo, el contador de guardias del ejercicio empieza en cero, pero los salientes y permisos extraordinarios pendientes se arrastran del año anterior. El historial permite consultar los movimientos de cada año. Cada guardia genera 1 saliente y 1 día adicional, incluso si tiene fecha futura. Cada guardia genera también 1 día adicional. Solo puedes disfrutar días adicionales que procedan de guardias registradas. Verifica la política de disfrute aplicable a la unidad.</p>
     </section>
   </div>
 </section>
@@ -375,29 +375,29 @@ html,body {background:#e0e7f0;}
       <span><b class="monthly-key monthly-leave">PO</b> Permiso oficial</span>
       <span><b class="monthly-key monthly-leave">AP</b> Asuntos particulares</span>
       <span><b class="monthly-key monthly-leave">SG</b> Saliente de guardia</span>
-      <span><b class="monthly-key monthly-leave">AG</b> Graciable disfrutado</span>
-      <span><b class="monthly-key monthly-grant-key">+AG</b> Concesión de graciables</span>
+      <span><b class="monthly-key monthly-leave">AG</b> Permiso extraordinario disfrutado</span>
+      <span><b class="monthly-key monthly-grant-key">+AG</b> Concesión de permisos extraordinarios</span>
       <span><b class="monthly-key monthly-leave">BJ</b> Baja médica</span>
       <span><b class="monthly-key monthly-leave">CS</b> Comisión de servicio</span>
-      <span><b class="monthly-key monthly-leave">AD</b> Día adicional</span>
+      <span><b class="monthly-key monthly-leave">AD</b> Día adicional disfrutado (saldo de guardias)</span>
       <span><b class="monthly-key monthly-absence">AJ</b> Ausencia justificada</span>
       <span><b class="monthly-key monthly-exception">AS</b> Ausencia sin justificar</span>
       <span><b class="monthly-key monthly-missing">—</b> Sin registro</span>
     </div>
     <div id="monthlyStateEditor" class="monthly-state-editor hidden no-print">
       <p class="monthly-state-title" id="monthlyStateSelected">Selecciona una casilla del calendario</p>
-      <p class="monthly-state-note">Puedes seleccionar varios días del mismo trabajador haciendo clic en ellos. Mantén Mayús (Shift) al pulsar otro día para seleccionar un intervalo. La edición múltiple permite situaciones administrativas (permisos, comisiones, bajas) y «Sin registro» para retirar estados administrativos en varias fechas. Las guardias y los días que afectan a saldos se editan de uno en uno.</p>
+      <p class="monthly-state-note">Puedes seleccionar varios días del mismo trabajador haciendo clic en ellos. Mantén Mayús (Shift) al pulsar otro día para seleccionar un intervalo. La edición múltiple permite situaciones administrativas (permisos, comisiones, bajas) y «Sin registro» para retirar estados administrativos en varias fechas. Cada guardia genera 1 saliente y 1 día adicional; los días que consumen saldo se editan de uno en uno.</p>
       <div class="monthly-state-fields">
         <div><label for="monthlyStateType">Estado</label><select id="monthlyStateType">
           <option value="">Sin registro (quitar estado)</option>
           <option value="presente_manual">Presente (registro excepcional por administración)</option>
-          <option value="guardia">Guardia (+1 saliente disponible)</option>
+          <option value="guardia">Guardia (+1 saliente y +1 día adicional)</option>
           <option value="permiso_oficial">Permiso oficial</option>
           <option value="asuntos_particulares">Asuntos particulares</option>
           <option value="saliente_guardia">Saliente de guardia (consumir saldo)</option>
-          <option value="conceder_agraciable">Conceder día(s) graciable(s) (+saldo)</option>
-          <option value="dia_agraciable">Disfrutar día graciable (−1 saldo)</option>
-          <option value="dia_adicional">Día adicional</option>
+          <option value="conceder_agraciable">Conceder permisos extraordinarios (+saldo)</option>
+          <option value="dia_agraciable">Disfrutar permiso extraordinario (−1 saldo)</option>
+          <option value="dia_adicional">Día adicional (consumir 1 del saldo generado por guardias)</option>
           <option value="ausencia_justificada">Ausencia justificada</option>
           <option value="baja_medica">Baja médica</option>
           <option value="comision_servicio">Comisión de servicio</option>
@@ -413,7 +413,7 @@ html,body {background:#e0e7f0;}
         <button type="button" id="monthlyStateSave">Guardar estado</button>
         <button class="ghost" type="button" id="monthlyStateCancel">Cancelar</button>
       </div>
-      <p class="monthly-state-note" id="monthlyStateMessage" role="status">Las guardias suman 1 saliente. «Conceder día(s) graciable(s)» añade saldo sin cambiar el estado del día, mientras que «Disfrutar día graciable» descuenta un día. El estado «Día adicional» no modifica los saldos. Los fichajes realizados por el trabajador no pueden modificarse aquí. La presencia manual es una anotación excepcional identificada. Para corregirla, selecciona «Sin registro» u otro estado.</p>
+      <p class="monthly-state-note" id="monthlyStateMessage" role="status">Cada guardia suma 1 saliente y 1 día adicional. «Conceder permisos extraordinarios» añade saldo sin cambiar el estado del día, mientras que «Disfrutar permiso extraordinario» descuenta un día. El estado «Día adicional» consume 1 del saldo generado exclusivamente por las guardias. Los fichajes realizados por el trabajador no pueden modificarse aquí. La presencia manual es una anotación excepcional identificada. Para corregirla, selecciona «Sin registro» u otro estado.</p>
     </div>
     <div class="monthly-scroll"><table class="monthly-table" id="monthlyTable"><thead id="monthlyHead"></thead><tbody id="monthlyRows"><tr><td>Selecciona un mes para consultar.</td></tr></tbody></table></div>
     <p id="monthlyStatus" class="monthly-caption" role="status" aria-live="polite">Los días sin registro no prueban una ausencia. Los registros de guardias y situaciones prevalecen sobre la casilla vacía.</p>
@@ -434,7 +434,7 @@ html,body {background:#e0e7f0;}
 <p class="help">Si coinciden un fichaje y una guardia en la misma fecha, el estado será «Presente / Guardia» independientemente del orden de registro. Las guardias se muestran como «Guardia» tanto si su fecha es futura como si ya ha pasado, siempre que no haya fichaje ni otra situación. Los fichajes nuevos utilizan el día de <strong>España peninsular (Europe/Madrid)</strong>. Los anteriores conservan su fecha original. Un registro sin fichaje se muestra como «Sin registro», no como ausencia o incumplimiento. Se admiten periodos de hasta 366 días por consulta para controlar la cuota gratuita de Firestore.</p>
 </section></aside><main class="report-main">
 <section class="card"><div class="toolbar"><div><h2 id="reportHeading">Resultado de la consulta</h2><p id="dateLabel" class="muted small"></p></div></div>
-<div class="cards" id="metrics"><div class="metric"><span class="muted">PERSONAL SEGEN</span><strong id="total">—</strong></div><div class="metric"><span class="muted">PERSONAL PRESENTE</span><strong id="present">—</strong></div><div class="metric"><span class="muted">PERSONAL SIN REGISTRAR</span><strong id="pending">—</strong></div></div>
+<div class="cards" id="metrics"><div class="metric"><span class="muted">PERSONAL SEGEN</span><strong id="total">—</strong></div><div class="metric"><span class="muted">PERSONAL PRESENTE</span><strong id="present">—</strong></div><div class="metric"><span class="muted">PERSONAL SIN REGISTRAR</span><strong id="pending">—</strong></div><div class="metric"><span class="muted">DÍAS ADICIONALES PENDIENTES</span><strong id="additionalPending">—</strong></div></div>
 <div class="exportinfo selection" id="reportNote">Selecciona un período y pulsa «Consultar registros».</div></section>
 <section class="card no-print hidden" id="situationEditor" aria-hidden="true">
   <div class="toolbar"><div><h2>Gestionar situación del trabajador</h2><p class="muted small">Selecciona una fila del informe para asignar una situación, o elige un trabajador. Un fichaje real siempre prevalece.</p></div></div>
@@ -459,7 +459,7 @@ html,body {background:#e0e7f0;}
   <p class="help">Máximo 90 días por operación. No se registrarán diagnósticos ni motivos médicos. Solo el administrador puede gestionar estas situaciones. Al borrar una situación, el estado vuelve a «Sin registro» si no existe fichaje.</p>
   <div id="sitMessage" class="manage-msg" role="status" aria-live="polite"></div>
 </section>
-<section class="card"><div class="day-navigation"><h2>Personal y asistencia</h2><div class="day-navigation-controls no-print" aria-label="Navegar entre días del informe"><button type="button" class="ghost" id="previousDay" title="Consultar el día anterior">‹ Día anterior</button><span class="day-navigation-current" id="navigationDay" aria-live="polite">—</span><button type="button" class="ghost" id="nextDay" title="Consultar el día siguiente">Día siguiente ›</button></div></div><div class="tablewrap"><table><thead><tr><th>Trabajador</th><th>Dependencia</th><th>Estado</th><th>Hora (España)</th><th class="no-print">Gestión</th></tr></thead><tbody id="rows"><tr><td colspan="5">Sin datos todavía.</td></tr></tbody></table></div></section>
+<section class="card"><div class="day-navigation"><h2>Personal y asistencia</h2><div class="day-navigation-controls no-print" aria-label="Navegar entre días del informe"><button type="button" class="ghost" id="previousDay" title="Consultar el día anterior">‹ Día anterior</button><span class="day-navigation-current" id="navigationDay" aria-live="polite">—</span><button type="button" class="ghost" id="nextDay" title="Consultar el día siguiente">Día siguiente ›</button></div></div><div class="tablewrap"><table><thead><tr><th>Trabajador</th><th>Dependencia</th><th>Estado</th><th>Hora (España)</th><th>Días adicionales pendientes</th><th class="no-print">Gestión</th></tr></thead><tbody id="rows"><tr><td colspan="6">Sin datos todavía.</td></tr></tbody></table></div></section>
 <p class="fineprint">Informe de prueba, sin carácter acreditativo de jornada laboral. Los nuevos fichajes utilizan Europe/Madrid y los registros antiguos conservan su fecha original. Las cifras «Sin registro» incluyen días no laborables y no prueban ausencia. La exportación usa los perfiles y dependencias actuales: los cambios históricos de asignación no están todavía modelados. El acceso requiere administrador autorizado.</p>
 </main></div><!-- end reports -->
 </div><div id="status" class="notice hidden" role="status" aria-live="polite"></div></div>
@@ -471,6 +471,24 @@ import {getFirestore,doc,getDoc,getDocs,collection,query,where,addDoc,setDoc,upd
 const firebaseConfig={apiKey:'AIzaSyAA328jFJgoKmhJc2u-4dmrvgIiDZKVJ-k',authDomain:'control-presencia-fireba-37b8e.firebaseapp.com',projectId:'control-presencia-fireba-37b8e',storageBucket:'control-presencia-fireba-37b8e.firebasestorage.app',messagingSenderId:'199352090992',appId:'1:199352090992:web:f1a2f0a342c80bc3b60fb5'};
 const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),$=id=>document.getElementById(id);
 let activeUid=null,adminReady=false,report=null,requestVersion=0;
+// V6.15.36: reunir peticiones de perfiles y dependencias hechas a la vez al entrar.
+// Cache temporal solo en memoria: no se almacena información de personal en el navegador.
+let baseAdminCache=null,baseAdminInFlight=null,baseAdminCacheTime=0;
+function invalidateAdminBaseCache(){baseAdminCache=null;baseAdminCacheTime=0;baseAdminInFlight=null;}
+function adminBaseDocs(){
+ if(!adminReady)return Promise.reject(Error('Sesión de administración no disponible.'));
+ const now=Date.now();
+ if(baseAdminCache&&now-baseAdminCacheTime<12000)return Promise.resolve(baseAdminCache);
+ if(baseAdminInFlight)return baseAdminInFlight;
+ const uid=activeUid;
+ const request=Promise.all([getDocs(collection(db,'users')),getDocs(collection(db,'departments'))])
+  .then(([users,deps])=>{if(!adminReady||activeUid!==uid)throw Error('La sesión ha cambiado.');
+    const result={users,deps};baseAdminCache=result;baseAdminCacheTime=Date.now();return result;});
+ baseAdminInFlight=request;
+ request.finally(()=>{if(baseAdminInFlight===request)baseAdminInFlight=null;}).catch(()=>{});
+ return request;
+}
+
 let employee=null,employeeBusy=false,workerEpoch=0,postLogoutMessage='',workerCloseTimer=null;
 let chosenAccess=null,attemptedLoginId=null;
 const LAST_EMAIL_KEY='cp_firebase_last_email';
@@ -562,7 +580,7 @@ $('checkBtn').addEventListener('click',async()=>{
   try{if(await readWorkerAttendance(uid,epoch))scheduleWorkerLogout('Tu presencia ya consta registrada y verificada.')}catch(_){workerReady(false)}
  }finally{if(workerCloseTimer===null)employeeBusy=false}
 });
-const SITUATION_LABELS={permiso_oficial:'Permiso oficial',saliente_servicio:'Saliente de servicio',saliente_guardia:'Saliente de guardia',asuntos_particulares:'Asuntos particulares',dia_adicional:'Día adicional',dia_agraciable:'Día graciable',ausencia_justificada:'Ausencia justificada',baja_medica:'Baja médica',comision_servicio:'Comisión de servicio',descanso:'Descanso / no laborable',ausencia_sin_justificar:'Ausencia sin justificar',otros:'Otros'};
+const SITUATION_LABELS={permiso_oficial:'Permiso oficial',saliente_servicio:'Saliente de servicio',saliente_guardia:'Saliente de guardia',asuntos_particulares:'Asuntos particulares',dia_adicional:'Día adicional',dia_agraciable:'Permiso extraordinario',ausencia_justificada:'Ausencia justificada',baja_medica:'Baja médica',comision_servicio:'Comisión de servicio',descanso:'Descanso / no laborable',ausencia_sin_justificar:'Ausencia sin justificar',otros:'Otros'};
 let situationPeople=[];
 function populateSituationPeople(people,interval){
  situationPeople=people.map(p=>({id:p.id,name:p.fullName||p.email||p.id}));
@@ -586,7 +604,7 @@ async function changeSituation(remove){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(start)||!/^\d{4}-\d{2}-\d{2}$/.test(end)||start>end)throw Error('Selecciona fechas válidas.');
  const count=daysBetween(start,end);if(count<1||count>90)throw Error('Selecciona un máximo de 90 días por operación.');
  if(!remove&&(!SITUATION_LABELS[type]||type==='saliente_servicio'))throw Error('Situación no admitida.');
- if(!remove&&type==='saliente_guardia')throw Error('Los salientes se asignan desde Registro.');
+ if(!remove&&['saliente_guardia','dia_adicional','dia_agraciable'].includes(type))throw Error('Los salientes, días adicionales y permisos extraordinarios se gestionan individualmente desde Registro.');
  const attendanceQuery=query(collection(db,'attendance'),where('workDate','>=',start),where('workDate','<=',end));
  const snap=await getDocs(attendanceQuery),attended=new Set();
  snap.docs.forEach(d=>{const a=d.data();if(a.userId===userId)attended.add(a.workDate)});
@@ -666,12 +684,13 @@ function moveWorkerInMonthly(id,direction){
 }
 function madridTime(timestamp){if(!timestamp?.toDate)return '—';return new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).format(timestamp.toDate())}
 async function refresh(){if(!adminReady)return;const version=++requestVersion,uid=activeUid;let interval;try{interval=dates()}catch(e){status(e.message,true);return}
-const b=$('refresh');b.disabled=true;b.textContent='Consultando…';$('actionHint').textContent='Cargando los datos de Firestore. La exportación se activará al terminar.';$('rows').replaceChildren();const pending=document.createElement('tr');tableCell(pending,'Consultando Firestore…').colSpan=5;$('rows').appendChild(pending);hideStatus();report=null;$('exportXlsx').disabled=true;$('printReport').disabled=true;
+const b=$('refresh');b.disabled=true;b.textContent='Consultando…';$('actionHint').textContent='Cargando los datos de Firestore. La exportación se activará al terminar.';$('rows').replaceChildren();const pending=document.createElement('tr');tableCell(pending,'Consultando Firestore…').colSpan=6;$('rows').appendChild(pending);hideStatus();report=null;$('exportXlsx').disabled=true;$('printReport').disabled=true;
 try{
  const attendanceQuery=query(collection(db,'attendance'),where('workDate','>=',interval.start),where('workDate','<=',interval.end));
  const situationQuery=query(collection(db,'presenceSituations'),where('workDate','>=',interval.start),where('workDate','<=',interval.end));
  const guardQuery=query(collection(db,'guardDuties'),where('workDate','>=',interval.start),where('workDate','<=',interval.end));
- const [profilesSnap,depSnap,attSnap,sitSnap,guardSnap]=await Promise.all([getDocs(collection(db,'users')),getDocs(collection(db,'departments')),getDocs(attendanceQuery),getDocs(situationQuery),getDocs(guardQuery)]);
+ const [base,attSnap,sitSnap,guardSnap,guardAllSnap,sitAllSnap]=await Promise.all([adminBaseDocs(),getDocs(attendanceQuery),getDocs(situationQuery),getDocs(guardQuery),getDocs(collection(db,'guardDuties')),getDocs(collection(db,'presenceSituations'))]);
+ const profilesSnap=base.users,depSnap=base.deps;
  if(activeUid!==uid||!adminReady||version!==requestVersion)return;
  const departments=depSnap.docs.map(d=>({id:d.id,name:d.data().name||d.id})).sort((a,b)=>a.name.localeCompare(b.name,'es'));
  const selected=$('deptSelect').value;
@@ -682,7 +701,10 @@ try{
  const records=new Map();for(const docSnap of attSnap.docs){const a=docSnap.data();if(typeof a.userId!=='string'||typeof a.workDate!=='string')continue;const key=a.userId+'_'+a.workDate;if(!records.has(key))records.set(key,a)}
  const situations=new Map();for(const ds of sitSnap.docs){const item=ds.data();if(typeof item.userId==='string'&&typeof item.workDate==='string'&&SITUATION_LABELS[item.type])situations.set(item.userId+'_'+item.workDate,item)}
  const guardsByDate=new Map();for(const ds of guardSnap.docs){const item=ds.data();if(typeof item.userId==='string'&&typeof item.workDate==='string')guardsByDate.set(item.userId+'_'+item.workDate,item)}
- const rows=[];for(let day=interval.start;day<=interval.end;day=addDays(day,1)){for(const p of people){const key=p.id+'_'+day;const a=records.get(key);const situation=situations.get(key);rows.push({id:p.id,date:day,name:p.fullName||p.email||p.id,email:p.email||'',dept:deptMap.get(p.departmentId)||'Dependencia no encontrada',status:a?(guardsByDate.has(key)?'Presente / Guardia':'Presente'):(situation?SITUATION_LABELS[situation.type]:(guardsByDate.has(key)?'Guardia':'Sin registro')),time:a?madridTime(a.checkedAt):'—',active:p.active===true?'Activo':'Inactivo',type:situation?.type||'',hasAttendance:!!a,guardia:guardsByDate.has(key),guardNote:guardsByDate.get(key)?.note||''})}}
+ const additionalByWorker=new Map();
+ for(const g of guardAllSnap.docs){const u=g.data().userId;additionalByWorker.set(u,(additionalByWorker.get(u)||0)+1)}
+ for(const a of sitAllSnap.docs){const d=a.data();if(d.type==='dia_adicional')additionalByWorker.set(d.userId,(additionalByWorker.get(d.userId)||0)-1)}
+ const rows=[];for(let day=interval.start;day<=interval.end;day=addDays(day,1)){for(const p of people){const key=p.id+'_'+day;const a=records.get(key);const situation=situations.get(key);rows.push({id:p.id,date:day,name:p.fullName||p.email||p.id,email:p.email||'',dept:deptMap.get(p.departmentId)||'Dependencia no encontrada',status:a?(guardsByDate.has(key)?'Presente / Guardia':'Presente'):(situation?SITUATION_LABELS[situation.type]:(guardsByDate.has(key)?'Guardia':'Sin registro')),time:a?madridTime(a.checkedAt):'—',active:p.active===true?'Activo':'Inactivo',type:situation?.type||'',hasAttendance:!!a,guardia:guardsByDate.has(key),guardNote:guardsByDate.get(key)?.note||'',additionalPending:additionalByWorker.get(p.id)||0})}}
  // Control diario: primero presencias (incluida P/G), después otras situaciones y al final sin registro.
  // Dentro de cada grupo se respeta el orden personalizado establecido en Registro de personal.
  const dailyPriority=r=>r.hasAttendance?0:(r.status==='Sin registro'?2:1);
@@ -692,14 +714,14 @@ try{
  const missing=rows.filter(r=>r.status==='Sin registro').length;
  const registered=rows.length-missing;
  report={rows,start:interval.start,end:interval.end,people:people.length,attended,registered,guardCount,missing,selectedDepartment:sel.options[sel.selectedIndex]?.textContent||'Todas las dependencias'};
- $('total').textContent=report.people;$('present').textContent=report.attended;$('pending').textContent=report.missing;populateSituationPeople(people,interval);
+ $('total').textContent=report.people;$('present').textContent=report.attended;$('pending').textContent=report.missing;$('additionalPending').textContent=people.reduce((sum,p)=>sum+(additionalByWorker.get(p.id)||0),0);populateSituationPeople(people,interval);
  $('dateLabel').textContent=interval.start===interval.end?('Día (España): '+interval.start):('Días (España): '+interval.start+' a '+interval.end+' · '+interval.n+' días');
  $('reportHeading').textContent=interval.n===1?'Resumen diario':'Resumen del período';
  $('reportNote').textContent='Dependencia: '+report.selectedDepartment+' · '+interval.n+' día(s) · '+report.people+' trabajador(es) seleccionados · '+report.registered+' registro(s) de presencia o situación · '+report.missing+' día(s)/persona sin registro. Sin registro no equivale a ausencia.';
- $('rows').replaceChildren();if(!rows.length){const tr=document.createElement('tr');tableCell(tr,'No hay trabajadores que coincidan con los filtros.').colSpan=5;$('rows').appendChild(tr)}
- else for(const r of rows){const tr=document.createElement('tr');tableCell(tr,r.name);tableCell(tr,r.dept);const td=document.createElement('td'),badge=document.createElement('span');badge.className='tag'+(r.hasAttendance?'':(r.status==='Sin registro'?' pending':' situ'));badge.textContent=r.status;td.appendChild(badge);tr.appendChild(td);tableCell(tr,r.time);const action=tableCell(tr,'');action.className='no-print';const edit=document.createElement('button');edit.type='button';edit.className='ghost mini';edit.textContent='Gestionar';edit.addEventListener('click',()=>editSituationRow(r));action.appendChild(edit);$('rows').appendChild(tr)}
+ $('rows').replaceChildren();if(!rows.length){const tr=document.createElement('tr');tableCell(tr,'No hay trabajadores que coincidan con los filtros.').colSpan=6;$('rows').appendChild(tr)}
+ else for(const r of rows){const tr=document.createElement('tr');tableCell(tr,r.name);tableCell(tr,r.dept);const td=document.createElement('td'),badge=document.createElement('span');badge.className='tag'+(r.hasAttendance?'':(r.status==='Sin registro'?' pending':' situ'));badge.textContent=r.status;td.appendChild(badge);tr.appendChild(td);tableCell(tr,r.time);tableCell(tr,String(r.additionalPending));const action=tableCell(tr,'');action.className='no-print';const edit=document.createElement('button');edit.type='button';edit.className='ghost mini';edit.textContent='Gestionar';edit.addEventListener('click',()=>editSituationRow(r));action.appendChild(edit);$('rows').appendChild(tr)}
  $('exportXlsx').disabled=false;$('printReport').disabled=false;$('exportXlsx').title='Descargar archivo Excel del período consultado';$('printReport').title='Abrir diálogo de impresión o guardar en PDF';$('actionHint').textContent='Consulta lista. Puedes descargar Excel o imprimir el informe.';status('Consulta completada. Listo para exportar a Excel o imprimir.');
-}catch(e){if(version===requestVersion){clearDashboard();status('Error al consultar Firestore: '+(e.code||'error')+' · '+e.message,true)}}finally{b.disabled=false;b.textContent='Consultar registros'}}
+}catch(e){if(version===requestVersion){clearDashboard();status('Error al consultar Firestore: '+(e.code||'error')+' · '+e.message,true)}}finally{if(version===requestVersion){b.disabled=false;b.textContent='Consultar registros'}}}
 // XLSX real, generado íntegramente en el navegador: ZIP sin compresión (STORE), sin bibliotecas externas.
 const enc=new TextEncoder();
 function crc32(bytes){let crc=0xffffffff;for(const b of bytes){crc^=b;for(let j=0;j<8;j++)crc=(crc&1)?(crc>>>1)^0xedb88320:crc>>>1}return (crc^0xffffffff)>>>0}
@@ -709,7 +731,7 @@ function combine(parts){const len=parts.reduce((n,p)=>n+p.length,0),out=new Uint
 function makeZip(entries){let offset=0;const local=[],central=[];for(const [name,content] of entries){const nameB=enc.encode(name),body=enc.encode(content),crc=crc32(body),flags=0x0800;const head=combine([U32(0x04034b50),U16(20),U16(flags),U16(0),U16(0),U16(0),U32(crc),U32(body.length),U32(body.length),U16(nameB.length),U16(0),nameB]);local.push(head,body);central.push(combine([U32(0x02014b50),U16(20),U16(20),U16(flags),U16(0),U16(0),U16(0),U32(crc),U32(body.length),U32(body.length),U16(nameB.length),U16(0),U16(0),U16(0),U16(0),U32(0),U32(offset),nameB]));offset+=head.length+body.length}const cd=combine(central);return combine([...local,cd,combine([U32(0x06054b50),U16(0),U16(0),U16(entries.length),U16(entries.length),U32(cd.length),U32(offset),U16(0)])])}
 const colName=i=>{let name='';for(let n=i+1;n>0;n=Math.floor((n-1)/26))name=String.fromCharCode(65+((n-1)%26))+name;return name};
 function sheetXML(rows,widths){const widthsXML=widths.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join('');const rs=rows.map((row,idx)=>`<row r="${idx+1}">${row.map((value,ci)=>{const s=String(value??'');const addr=colName(ci)+(idx+1);const style=idx===0?' s="1"':'';return `<c r="${addr}" t="inlineStr"${style}><is><t xml:space="preserve">${escapeXML(s)}</t></is></c>`}).join('')}</row>`).join('');return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"/></sheetViews><sheetFormatPr defaultRowHeight="17"/><cols>${widthsXML}</cols><sheetData>${rs}</sheetData><autoFilter ref="A1:${colName(widths.length-1)}${rows.length}"/></worksheet>`}
-function makeWorkbook(report){const details=[['FECHA (ESPAÑA)','TRABAJADOR','CORREO','DEPENDENCIA','ESTADO','HORA (ESPAÑA)','ESTADO ACTUAL'],...report.rows.map(r=>[r.date,r.name,r.email,r.dept,r.status,r.time,r.active])];const summary=[['CAMPO','VALOR'],['Desde (España)',report.start],['Hasta (España)',report.end],['Dependencia',report.selectedDepartment],['PERSONAL SEGEN',report.people],['PERSONAL PRESENTE',report.attended],['PERSONAL SIN REGISTRAR',report.missing],['Aviso','Sin registro no equivale a ausencia. Se utiliza la fecha peninsular (Europe/Madrid) para los fichajes nuevos.'],['Histórico','Los perfiles y dependencias reflejan su asignación actual, no la histórica.']];
+function makeWorkbook(report){const details=[['FECHA (ESPAÑA)','TRABAJADOR','CORREO','DEPENDENCIA','ESTADO','HORA (ESPAÑA)','DÍAS ADICIONALES PENDIENTES','ESTADO ACTUAL'],...report.rows.map(r=>[r.date,r.name,r.email,r.dept,r.status,r.time,r.additionalPending,r.active])];const summary=[['CAMPO','VALOR'],['Desde (España)',report.start],['Hasta (España)',report.end],['Dependencia',report.selectedDepartment],['PERSONAL SEGEN',report.people],['PERSONAL PRESENTE',report.attended],['PERSONAL SIN REGISTRAR',report.missing],['Aviso','Sin registro no equivale a ausencia. Se utiliza la fecha peninsular (Europe/Madrid) para los fichajes nuevos.'],['Histórico','Los perfiles y dependencias reflejan su asignación actual, no la histórica.']];
 const entries=[
  ['[Content_Types].xml',`<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/worksheets/sheet2.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>`],
  ['_rels/.rels',`<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`],
@@ -717,7 +739,7 @@ const entries=[
  ['xl/_rels/workbook.xml.rels',`<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet2.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`],
  ['xl/styles.xml',`<?xml version="1.0" encoding="UTF-8"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Aptos"/></font><font><b/><color rgb="FFFFFFFF"/><sz val="11"/><name val="Aptos"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF244F89"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="1"><border/></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="1" borderId="0" xfId="0" applyFont="1" applyFill="1"/></cellXfs></styleSheet>`],
  ['xl/worksheets/sheet1.xml',sheetXML(summary,[34,100])],
- ['xl/worksheets/sheet2.xml',sheetXML(details,[17,28,34,32,23,21,17])]
+ ['xl/worksheets/sheet2.xml',sheetXML(details,[17,28,34,32,23,21,21,17])]
 ];return new Blob([makeZip(entries)],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})}
 $('exportXlsx').addEventListener('click',()=>{if(!report||!adminReady)return;const blob=makeWorkbook(report),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='presencia_'+report.start+'_'+report.end+'.xlsx';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000)});
 $('printReport').addEventListener('click',()=>{if(report&&adminReady)window.print()});
@@ -733,8 +755,9 @@ function guardAnnualCount(uid,year=guardDisplayYear()){return guardRecords.filte
 function guardBalance(uid){
  const events=guardRecords.filter(g=>g.userId===uid),usedExit=guardSituations.filter(s=>s.userId===uid&&s.type==='saliente_guardia').length,
  graciousEarned=guardGrants.filter(g=>g.userId===uid).reduce((sum,g)=>sum+(Number(g.quantity)||0),0),
- graciousUsed=guardSituations.filter(s=>s.userId===uid&&s.type==='dia_agraciable').length;
- return {earned:events.length,usedExit,exit:events.length-usedExit,graciousEarned,graciousUsed,gracious:graciousEarned-graciousUsed};
+ graciousUsed=guardSituations.filter(s=>s.userId===uid&&s.type==='dia_agraciable').length,
+ additionalUsed=guardSituations.filter(s=>s.userId===uid&&s.type==='dia_adicional').length;
+ return {earned:events.length,usedExit,exit:events.length-usedExit,additionalEarned:events.length,additionalUsed,additional:events.length-additionalUsed,graciousEarned,graciousUsed,gracious:graciousEarned-graciousUsed};
 }
 function guardOptions(){
  for(const id of ['guardPerson']){
@@ -761,7 +784,7 @@ function renderGuardList(){
  const deptById=new Map(managedDeps.map(d=>[d.id,d.name]));
  const filter=$('guardSearch').value.trim().toLocaleLowerCase('es');
  const people=guardPeople.filter(p=>p.active===true&&(guardPersonName(p)+' '+(deptById.get(p.departmentId)||'')).toLocaleLowerCase('es').includes(filter));
- if(!people.length){const r=document.createElement('tr');tableCell(r,'No se encontraron trabajadores.').colSpan=4;tbody.appendChild(r)}
+ if(!people.length){const r=document.createElement('tr');tableCell(r,'No se encontraron trabajadores.').colSpan=5;tbody.appendChild(r)}
  for(const p of people){
   const bal=guardBalance(p.id),r=document.createElement('tr');
   r.classList.add('guard-click-row');
@@ -772,7 +795,7 @@ function renderGuardList(){
   r.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();selectGuardPerson(p.id,true)}});
   const name=tableCell(r,guardPersonName(p));const dept=document.createElement('small');dept.className='muted';dept.style.display='block';dept.textContent=deptById.get(p.departmentId)||'Sin dependencia';name.appendChild(dept);
   tableCell(r,guardAnnualCount(p.id,displayYear));
-  for(const value of [bal.exit,bal.gracious]){const td=document.createElement('td'),tag=document.createElement('span');tag.className='guard-credit'+(value<=0?' zero':'');tag.textContent=String(value);if(value<0){tag.title='Hay más días utilizados que días disponibles.';tag.textContent=String(value)+' ⚠'}td.appendChild(tag);r.appendChild(td)}
+  for(const value of [bal.exit,bal.additional,bal.gracious]){const td=document.createElement('td'),tag=document.createElement('span');tag.className='guard-credit'+(value<=0?' zero':'');tag.textContent=String(value);if(value<0){tag.title='Hay más días utilizados que días disponibles.';tag.textContent=String(value)+' ⚠'}td.appendChild(tag);r.appendChild(td)}
   tbody.appendChild(r);
  }
 }
@@ -788,15 +811,15 @@ function renderGuardHistory(){
  const deptName=document.createElement('p');deptName.textContent=dept?.name||'Sin dependencia';identity.appendChild(deptName);head.appendChild(identity);
  const mark=document.createElement('span');mark.className='guard-person-mark';mark.textContent='✓ Seleccionado';head.appendChild(mark);summary.appendChild(head);
  const stats=document.createElement('div');stats.className='guard-person-stats';
- for(const [label,value] of [['Guardias '+guardDisplayYear(),guardAnnualCount(p.id)],['Salientes pendientes',bal.exit],['Días graciables pendientes',bal.gracious]]){
+ for(const [label,value] of [['Guardias '+guardDisplayYear(),guardAnnualCount(p.id)],['Salientes pendientes',bal.exit],['Días adicionales pendientes',bal.additional],['Permisos extraordinarios pendientes',bal.gracious]]){
    const stat=document.createElement('div');stat.className='guard-person-stat';
    const caption=document.createElement('span');caption.textContent=label;
    const count=document.createElement('strong');count.textContent=String(value);if(value<0)count.classList.add('guard-negative');
    stat.append(caption,count);stats.appendChild(stat);
  }
  summary.appendChild(stats);
- if(bal.exit<0||bal.gracious<0){const warn=document.createElement('p');warn.className='notice error';warn.textContent='Atención: hay días utilizados sin saldo suficiente. Revisa las guardias, concesiones y disfrutes.';box.appendChild(warn)}
- const allEntries=[...guardRecords.filter(g=>g.userId===p.id).map(g=>({...g,kind:'Guardia',date:g.workDate})),...guardGrants.filter(g=>g.userId===p.id).map(g=>({...g,kind:'Días graciables concedidos: +'+g.quantity,date:g.workDate,isGrant:true})),...guardSituations.filter(g=>g.userId===p.id&&['saliente_guardia','dia_agraciable'].includes(g.type)).map(g=>({...g,kind:g.type==='saliente_guardia'?'Saliente utilizado':'Graciable utilizado',date:g.workDate}))].sort((a,b)=>b.date.localeCompare(a.date));
+ if(bal.exit<0||bal.additional<0||bal.gracious<0){const warn=document.createElement('p');warn.className='notice error';warn.textContent='Atención: hay días utilizados sin saldo suficiente. Revisa las guardias, concesiones y disfrutes.';box.appendChild(warn)}
+ const allEntries=[...guardRecords.filter(g=>g.userId===p.id).map(g=>({...g,kind:'Guardia',date:g.workDate})),...guardGrants.filter(g=>g.userId===p.id).map(g=>({...g,kind:'Permisos extraordinarios concedidos: +'+g.quantity,date:g.workDate,isGrant:true})),...guardSituations.filter(g=>g.userId===p.id&&['saliente_guardia','dia_agraciable','dia_adicional'].includes(g.type)).map(g=>({...g,kind:g.type==='saliente_guardia'?'Saliente utilizado':g.type==='dia_adicional'?'Día adicional disfrutado':'Permiso extraordinario utilizado',date:g.workDate}))].sort((a,b)=>b.date.localeCompare(a.date));
  // Mostrar un año por vez sin alterar el cálculo acumulado de los saldos.
  const currentYear=madridDay().slice(0,4);
  const availableYears=[...new Set([currentYear,...allEntries.map(item=>String(item.date||'').slice(0,4)).filter(y=>/^\d{4}$/.test(y))])].sort((a,b)=>b.localeCompare(a));
@@ -811,11 +834,11 @@ function renderGuardHistory(){
  const tab=document.createElement('table'),thead=document.createElement('thead');thead.innerHTML='<tr><th>Fecha</th><th>Movimiento</th><th>Motivo</th><th>Acción</th></tr>';tab.appendChild(thead);const body=document.createElement('tbody');
  for(const item of entries){const r=document.createElement('tr');tableCell(r,item.date);tableCell(r,item.kind);const reasonCell=tableCell(r,item.isGrant?(item.note||'—'):'—');reasonCell.className='guard-reason-cell';if(item.isGrant&&item.note)reasonCell.title=item.note;const td=document.createElement('td');
  if(item.kind==='Guardia'){
-  const btn=document.createElement('button');btn.type='button';btn.className='ghost mini';btn.textContent='Anular';btn.disabled=bal.exit<1;btn.title=btn.disabled?'Hay días consumidos que impiden anular esta guardia.':'Anular esta guardia registrada por error';
+  const btn=document.createElement('button');btn.type='button';btn.className='ghost mini';btn.textContent='Anular';btn.disabled=bal.exit<1||bal.additional<1;btn.title=btn.disabled?'Hay días consumidos que impiden anular esta guardia.':'Anular esta guardia registrada por error';
   btn.addEventListener('click',async()=>{
-   if(!confirm('¿Anular la guardia de '+item.date+' de '+guardPersonName(p)+'? Se retirará 1 saliente del saldo.'))return;
+   if(!confirm('¿Anular la guardia de '+item.date+' de '+guardPersonName(p)+'? Se retirarán 1 saliente y 1 día adicional de sus saldos.'))return;
    btn.disabled=true;try{
-    await loadGuardsData();const updated=guardBalance(p.id);if(updated.exit<1)throw Error('No se puede anular: el saliente generado ya se ha utilizado.');
+    await loadGuardsData();const updated=guardBalance(p.id);if(updated.exit<1||updated.additional<1)throw Error('No se puede anular: el saliente o el día adicional generado ya se ha utilizado.');
     await deleteDoc(doc(db,'guardDuties',p.id+'_'+item.date));await loadGuards();guardError('guardMessage','Guardia anulada. Los saldos se han actualizado.');if(report)await refresh();
    }catch(e){guardError('guardMessage','No se pudo anular: '+(e.code||e.message),true)}finally{btn.disabled=false}
   });td.appendChild(btn)
@@ -823,11 +846,11 @@ function renderGuardHistory(){
   const btn=document.createElement('button');btn.type='button';btn.className='ghost mini';btn.textContent='Anular';btn.disabled=bal.gracious<Number(item.quantity);
   btn.title=btn.disabled?'Parte de los días concedidos ya están consumidos.':'Anular concesión';
   btn.addEventListener('click',async()=>{
-   if(!confirm('¿Anular la concesión de '+item.quantity+' día(s) graciable(s) del '+item.date+'?'))return;
+   if(!confirm('¿Anular la concesión de '+item.quantity+' permiso(s) extraordinario(s) del '+item.date+'?'))return;
    btn.disabled=true;
    try{
     await loadGuardsData();const updated=guardBalance(p.id);
-    if(updated.gracious<Number(item.quantity))throw Error('No se puede anular: hay días graciables ya disfrutados.');
+    if(updated.gracious<Number(item.quantity))throw Error('No se puede anular: hay permisos extraordinarios ya disfrutados.');
     await deleteDoc(doc(db,'graciousDays',p.id+'_'+item.date));
     await loadGuards();guardError('guardMessage','Concesión anulada y saldo actualizado.');
    }catch(e){guardError('guardMessage','No se pudo anular la concesión: '+(e.code||e.message),true)}finally{btn.disabled=false}
@@ -845,10 +868,11 @@ function renderGuardHistory(){
  r.appendChild(td);body.appendChild(r)}tab.appendChild(body);box.appendChild(tab)
 }
 async function loadGuardsData(){
- const [profiles,deps,guards,grants,situations]=await Promise.all([
-  getDocs(collection(db,'users')),getDocs(collection(db,'departments')),
+ const [base,guards,grants,situations]=await Promise.all([
+  adminBaseDocs(),
   getDocs(collection(db,'guardDuties')),getDocs(collection(db,'graciousDays')),getDocs(collection(db,'presenceSituations'))
  ]);
+ const profiles=base.users,deps=base.deps;
  guardPeople=profiles.docs.map(d=>({id:d.id,...d.data()})).filter(p=>p.role==='employee').sort((a,b)=>guardPersonName(a).localeCompare(guardPersonName(b),'es'));
  managedDeps=deps.docs.map(d=>({id:d.id,...d.data()}));
  guardRecords=guards.docs.map(d=>({id:d.id,...d.data()}));
@@ -858,6 +882,8 @@ async function loadGuardsData(){
 async function loadGuards(){
  if(!adminReady||guardLoading)return;
  guardLoading=true;const uid=activeUid;
+ if(!guardPeople.length){const body=$('guardRows');body.replaceChildren();const row=document.createElement('tr');tableCell(row,'Cargando personal y saldos…').colSpan=5;body.appendChild(row);}
+ guardError('guardMessage','Consultando guardias y días pendientes…');
  try{await loadGuardsData();if(!adminReady||activeUid!==uid)return;
   if(guardSelected&&!guardPeople.some(p=>p.id===guardSelected&&p.active===true))guardSelected='';
   guardOptions();renderGuardList();renderGuardHistory();
@@ -865,7 +891,7 @@ async function loadGuards(){
  finally{guardLoading=false}
 }
 $('guardDate').value=madridDay();
-// El único formulario de alta en esta sección es la concesión de graciables.
+// El único formulario de alta en esta sección es la concesión de permisos extraordinarios.
 $('guardEntryType').value='graciable';
 $('guardEntryType').addEventListener('change',()=>{
  const isGrant=$('guardEntryType').value==='graciable';
@@ -873,7 +899,7 @@ $('guardEntryType').addEventListener('change',()=>{
  $('graciousReasonField').classList.toggle('hidden',!isGrant);
  $('graciousQuantity').required=isGrant;
  $('guardDateLabel').textContent=isGrant?'Fecha de la concesión':'Fecha de la guardia (admite futuras)';
- $('guardSave').textContent=isGrant?'+ Conceder días graciables':'+ Registrar guardia y generar 1 saliente';
+ $('guardSave').textContent=isGrant?'+ Conceder permisos extraordinarios':'+ Registrar guardia y generar 1 saliente y 1 día adicional';
 });
 $('guardEntryType').dispatchEvent(new Event('change'));
 $('guardSearch').addEventListener('input',renderGuardList);
@@ -907,7 +933,7 @@ $('guardForm').addEventListener('submit',async e=>{
  const uid=$('guardPerson').value,date=$('guardDate').value,person=guardPeople.find(p=>p.id===uid),isGrant=$('guardEntryType').value==='graciable',quantity=Number($('graciousQuantity').value),reason=isGrant?$('graciousReason').value.trim():'';
  if(!person||person.active!==true)return guardError('guardMessage','Selecciona un trabajador activo.',true);
  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||(isGrant&&date>madridDay()))return guardError('guardMessage',isGrant?'La fecha de concesión no puede ser futura.':'Indica una fecha válida.',true);
- if(isGrant&&(!Number.isInteger(quantity)||quantity<1||quantity>365))return guardError('guardMessage','Indica entre 1 y 365 días graciables.',true);
+ if(isGrant&&(!Number.isInteger(quantity)||quantity<1||quantity>365))return guardError('guardMessage','Indica entre 1 y 365 permisos extraordinarios.',true);
  if(isGrant&&(!reason||reason.length>120))return guardError('guardMessage','Escribe un motivo breve de hasta 120 caracteres.',true);
  const btn=$('guardSave'),stopNotice=guardPendingNotice('guardMessage',btn);
  let saved=false;
@@ -927,7 +953,7 @@ $('guardForm').addEventListener('submit',async e=>{
   const target=isGrant?guardGrants:guardRecords;
   if(!target.some(x=>x.id===localRecord.id))target.push(localRecord);
   try{redrawGuardsImmediately()}catch(renderError){console.warn('Actualización visual pendiente:',renderError)}
-  guardError('guardMessage',isGrant?'Concesión guardada correctamente: +'+quantity+' día(s) graciable(s).':'Guardia guardada correctamente: +1 saliente. Aparecerá en Control diario para la fecha seleccionada.');
+  guardError('guardMessage',isGrant?'Concesión guardada correctamente: +'+quantity+' permiso(s) extraordinario(s).':'Guardia guardada correctamente: +1 saliente y +1 día adicional. Aparecerá en Control diario para la fecha seleccionada.');
  }catch(err){
   guardError('guardMessage','No se pudo confirmar el registro: '+(err.code||err.message)+'. Antes de reintentar, comprueba si ya aparece en el historial.',true);
  }finally{
@@ -961,7 +987,7 @@ $('monthlyEditOrder').addEventListener('click',()=>{
 // V6.15.7: edición de un día directamente desde el calendario mensual.
 let monthlySelectedState=null;
 let monthlySelectedDates=[];
-const MONTHLY_BATCH_TYPES=new Set(['','permiso_oficial','comision_servicio','baja_medica','asuntos_particulares','ausencia_justificada','ausencia_sin_justificar','otros','dia_adicional']);
+const MONTHLY_BATCH_TYPES=new Set(['','permiso_oficial','comision_servicio','baja_medica','asuntos_particulares','ausencia_justificada','ausencia_sin_justificar','otros']);
 const monthlyStateEditor=$('monthlyStateEditor');
 function clearMonthlyHighlight(){
  $('monthlyTable').querySelectorAll('.month-selected,.month-row-selected,.month-day-selected').forEach(el=>el.classList.remove('month-selected','month-row-selected','month-day-selected'));
@@ -985,8 +1011,8 @@ function updateMonthlyEditorFields(){
  const choice=$('monthlyStateType').value;
  $('monthlyManualReasonBox').classList.add('hidden');
  $('monthlyGrantFields').classList.toggle('hidden',choice!=='conceder_agraciable');
- $('monthlyStateSave').textContent=choice==='conceder_agraciable'?'Conceder días graciables':monthlySelectedDates.length>1?'Guardar en '+monthlySelectedDates.length+' días':'Guardar estado';
- if(monthlySelectedDates.length>1 && !MONTHLY_BATCH_TYPES.has(choice))$('monthlyStateMessage').textContent='Para modificar varios días, selecciona «Sin registro» o una situación administrativa (permiso, baja, comisión, etc.). Las guardias, salientes y graciables se gestionan por separado.';
+ $('monthlyStateSave').textContent=choice==='conceder_agraciable'?'Conceder permisos extraordinarios':monthlySelectedDates.length>1?'Guardar en '+monthlySelectedDates.length+' días':'Guardar estado';
+ if(monthlySelectedDates.length>1 && !MONTHLY_BATCH_TYPES.has(choice))$('monthlyStateMessage').textContent='Para modificar varios días, selecciona «Sin registro» o una situación administrativa (permiso, baja, comisión, etc.). Las guardias, salientes y permisos extraordinarios se gestionan por separado.';
 }
 $('monthlyStateType').addEventListener('change',updateMonthlyEditorFields);
 $('monthlyEditStatus').addEventListener('click',()=>{
@@ -1095,7 +1121,7 @@ async function clearSimpleMonthlyDates(personId,dates){
   const adminAttendance=monthlyVisibleAdminAttendance.has(key);
   if(monthlyVisibleGuards.has(key))throw Error('El '+date+' tiene una guardia. No se ha cambiado ninguna fecha.');
   if(attendance&&!adminAttendance)throw Error('El '+date+' contiene un fichaje del trabajador. No se ha cambiado ninguna fecha.');
-  if(type==='saliente_guardia'||type==='dia_agraciable')throw Error('El '+date+' consume saldo. Modifícalo individualmente.');
+  if(type==='saliente_guardia'||type==='dia_agraciable'||type==='dia_adicional')throw Error('El '+date+' consume saldo. Modifícalo individualmente.');
   return {date,key,type,attendance,adminAttendance};
  });
  // Se vuelve a leer la situación actual (una lectura por día, no tres).
@@ -1124,7 +1150,7 @@ async function clearSimpleMonthlyDates(personId,dates){
  return changes;
 }
 // Actualiza las casillas afectadas sin descargar otra vez todos los registros del mes.
-// No afecta a las marcas de concesión de días graciables.
+// No afecta a las marcas de concesión de permisos extraordinarios.
 function applyClearedMonthlyDays(personId,dates){
  for(const date of dates){
   const key=personId+'_'+date;
@@ -1142,8 +1168,8 @@ function applyClearedMonthlyDays(personId,dates){
   mark.classList.add(style);
   const main=mark.querySelector('.monthly-grant-state');
   if(main)main.textContent=code;
-  mark.setAttribute('aria-label',label+(mark.classList.contains('monthly-has-grant')?' · Concesión graciable':''));
-  td.title=(monthlyWorkersCache.find(p=>p.id===personId)?.fullName||'Trabajador')+' · '+date.split('-').reverse().join('/')+' · '+label+(mark.classList.contains('monthly-has-grant')?' · Concesión graciable registrada':'');
+  mark.setAttribute('aria-label',label+(mark.classList.contains('monthly-has-grant')?' · Concesión permiso extraordinario':''));
+  td.title=(monthlyWorkersCache.find(p=>p.id===personId)?.fullName||'Trabajador')+' · '+date.split('-').reverse().join('/')+' · '+label+(mark.classList.contains('monthly-has-grant')?' · Concesión permiso extraordinario registrada':'');
  }
 }
 function finishSimpleMonthlyClear(message,personId,dates){
@@ -1175,7 +1201,7 @@ $('monthlyStateSave').addEventListener('click',async()=>{
      for(const d of docs){
       if(d.a.exists())throw Error('El '+d.date+' tiene una presencia que no puede modificarse en bloque. No se modificó ninguna fecha.');
       if(d.g.exists())throw Error('El '+d.date+' tiene una guardia. Modifícala individualmente; no se cambió ninguna fecha.');
-      if(d.s.exists()&&['saliente_guardia','dia_agraciable'].includes(d.s.data().type))throw Error('El '+d.date+' consume saldo. Modifícalo individualmente; no se cambió ninguna fecha.');
+      if(d.s.exists()&&['saliente_guardia','dia_agraciable','dia_adicional'].includes(d.s.data().type))throw Error('El '+d.date+' consume saldo. Modifícalo individualmente; no se cambió ninguna fecha.');
      }
      for(const d of docs)tx.set(d.sitRef,{userId:person.id,workDate:d.date,type,updatedBy:auth.currentUser.uid,updatedAt:serverTimestamp()});
     });
@@ -1193,7 +1219,7 @@ $('monthlyStateSave').addEventListener('click',async()=>{
   if(date>madridDay())return $('monthlyStateMessage').textContent='La concesión no puede tener una fecha futura.';
   if(!Number.isInteger(grantQuantity)||grantQuantity<1||grantQuantity>365)return $('monthlyStateMessage').textContent='Introduce entre 1 y 365 días.';
   if(!grantReason||grantReason.length>120)return $('monthlyStateMessage').textContent='Indica el motivo de la concesión (máximo 120 caracteres).';
-  if(!confirm('¿Conceder '+grantQuantity+' día(s) graciable(s) a '+(person.fullName||person.email)+' con fecha '+date.split('-').reverse().join('/')+'?'))return;
+  if(!confirm('¿Conceder '+grantQuantity+' permiso(s) extraordinario(s) a '+(person.fullName||person.email)+' con fecha '+date.split('-').reverse().join('/')+'?'))return;
   const endSave=beginMonthlySave('Registrando concesión en Firebase…');
   try{
    const ref=doc(db,'graciousDays',person.id+'_'+date);
@@ -1202,7 +1228,7 @@ $('monthlyStateSave').addEventListener('click',async()=>{
     if(previous.exists())throw Error('Ya existe una concesión en esa fecha para este trabajador. Consulta el historial de movimientos.');
     tx.set(ref,{userId:person.id,workDate:date,note:grantReason,quantity:grantQuantity,recordedBy:auth.currentUser.uid,recordedAt:serverTimestamp()});
    });
-   finishMonthlySave('Concesión registrada: +'+grantQuantity+' día(s) graciable(s).');
+   finishMonthlySave('Concesión registrada: +'+grantQuantity+' permiso(s) extraordinario(s).');
   }catch(err){$('monthlyStateMessage').textContent='No se pudo conceder: '+(err.code||err.message)+'. Verifica el historial antes de repetir.';}
   finally{endSave();}
   return;
@@ -1211,14 +1237,14 @@ $('monthlyStateSave').addEventListener('click',async()=>{
  if(type==='presente_manual'&&date>madridDay())return $('monthlyStateMessage').textContent='No se puede registrar una presencia en una fecha futura.';
  if(type==='presente_manual'&&present)return $('monthlyStateMessage').textContent='Ya hay una presencia registrada para esta fecha. No se creará un duplicado.';
   if(present&&!adminPresent&&type!=='guardia')return $('monthlyStateMessage').textContent='Este día tiene un fichaje del trabajador: no puedes quitarlo ni cambiarlo. Sí puedes añadir una guardia.';
- if(type==='saliente_guardia'||type==='dia_agraciable'){
+ if(type==='saliente_guardia'||type==='dia_agraciable'||type==='dia_adicional'){
   if(present&&!adminPresent)return $('monthlyStateMessage').textContent='No se puede consumir un día libre sobre un fichaje realizado por el trabajador.';
  }
  if(type==='guardia'&&guard&&(!existingType||present))return $('monthlyStateMessage').textContent='La guardia ya está registrada para esta fecha.';
  if(!confirm('¿Guardar «'+(type==='guardia'?'Guardia':type==='presente_manual'?'Presente (registro manual)':type?SITUATION_LABELS[type]||type:'Sin registro')+'» para '+(person.fullName||person.email)+' el '+date.split('-').reverse().join('/')+'?'))return;
  // Sin registro: ruta independiente de borrado, sin transacción y sin consultas de saldos.
  // Las guardias y los días que consumen saldo conservan su procedimiento individual.
- if(type===''&&!guard&&!['saliente_guardia','dia_agraciable'].includes(existingType)){
+ if(type===''&&!guard&&!['saliente_guardia','dia_agraciable','dia_adicional'].includes(existingType)){
   const endClear=beginMonthlySave('Comprobando y retirando el estado administrativo…');
   try{
    const changes=await clearSimpleMonthlyDates(person.id,[date]);
@@ -1238,7 +1264,7 @@ $('monthlyStateSave').addEventListener('click',async()=>{
     if(!person.departmentId)throw Error('El trabajador no tiene una dependencia asignada.');
     // Si se sustituye una situación, queda únicamente el fichaje administrativo.
     // Se conserva una guardia ya registrada, mostrándose P/G.
-    if(s.exists())tx.delete(sitRef);
+    if(s.exists()){if(['saliente_guardia','dia_adicional','dia_agraciable'].includes(s.data().type))throw Error('Este día consume saldo. Primero debes retirar el disfrute en Registro.');tx.delete(sitRef)}
     tx.set(attRef,{userId:uid,departmentId:person.departmentId,workDate:date,checkedAt:serverTimestamp(),source:'admin',recordedBy:auth.currentUser.uid,recordedAt:serverTimestamp(),reason:manualNote});
    });
    finishMonthlySave('Presencia manual guardada con identificación del administrador.');
@@ -1246,10 +1272,10 @@ $('monthlyStateSave').addEventListener('click',async()=>{
   }
   // Para permisos, bajas y comisiones no hace falta consultar todos los históricos.
   // Solo comprobar saldos cuando el cambio pueda crear, retirar o consumir días.
-  const needsBalance=type==='guardia'||type==='saliente_guardia'||type==='dia_agraciable'||guard||existingType==='saliente_guardia'||existingType==='dia_agraciable';
-  let earned=0,used=0,grants=0,enjoyed=0;
+  const needsBalance=type==='guardia'||type==='saliente_guardia'||type==='dia_agraciable'||type==='dia_adicional'||guard||existingType==='saliente_guardia'||existingType==='dia_agraciable'||existingType==='dia_adicional';
+  let earned=0,used=0,additionalUsed=0,grants=0,enjoyed=0;
   if(needsBalance){
-   $('monthlyStateMessage').textContent='Comprobando el saldo de guardias y graciables…';
+   $('monthlyStateMessage').textContent='Comprobando el saldo de guardias y permisos extraordinarios…';
    const [allGuards,allSituations,allGrants]=await Promise.all([
     getDocs(query(collection(db,'guardDuties'),where('userId','==',uid))),
     getDocs(query(collection(db,'presenceSituations'),where('userId','==',uid))),
@@ -1257,13 +1283,14 @@ $('monthlyStateSave').addEventListener('click',async()=>{
    ]);
    earned=allGuards.size;
    used=allSituations.docs.filter(d=>d.data().type==='saliente_guardia').length;
+   additionalUsed=allSituations.docs.filter(d=>d.data().type==='dia_adicional').length;
    grants=allGrants.docs.reduce((sum,d)=>sum+(Number(d.data().quantity)||0),0);
    enjoyed=allSituations.docs.filter(d=>d.data().type==='dia_agraciable').length;
   }
   await runTransaction(db,async tx=>{
    const [g,s,a]=await Promise.all([tx.get(guardRef),tx.get(sitRef),tx.get(attRef)]);
    const hasGuard=g.exists(),oldType=s.exists()?s.data().type:null;
-   if(!needsBalance&&(hasGuard||oldType==='saliente_guardia'||oldType==='dia_agraciable'))
+   if(!needsBalance&&(hasGuard||oldType==='saliente_guardia'||oldType==='dia_agraciable'||oldType==='dia_adicional'))
     throw Error('La situación o guardia ha cambiado desde que abriste el calendario. Actualízalo antes de editar.');
    if(a.exists()&&a.data().source!=='admin'&&type!=='guardia')throw Error('Existe un fichaje del trabajador que no puede cambiarse desde administración.');
    if(type==='guardia'&&hasGuard&&(!oldType||a.exists()))throw Error('La guardia ya está registrada.');
@@ -1272,9 +1299,13 @@ $('monthlyStateSave').addEventListener('click',async()=>{
    const willAddUsedExit=type==='saliente_guardia'&&oldType!=='saliente_guardia';
    const finalBalance=earned-(willRemoveGuard?1:0)-used+(willRemoveUsedExit?1:0)-(willAddUsedExit?1:0)+(type==='guardia'&&!hasGuard?1:0);
    if(needsBalance&&finalBalance<0)throw Error('No se puede anular esta guardia o consumir un saliente: no quedaría saldo suficiente.');
+   const willRemoveAdditional=oldType==='dia_adicional'&&type!=='dia_adicional';
+   const willUseAdditional=type==='dia_adicional'&&oldType!=='dia_adicional';
+   const finalAdditionalBalance=earned-(willRemoveGuard?1:0)-additionalUsed+(willRemoveAdditional?1:0)-(willUseAdditional?1:0)+(type==='guardia'&&!hasGuard?1:0);
+   if(needsBalance&&finalAdditionalBalance<0)throw Error('No hay días adicionales disponibles. Solo se generan al registrar guardias y no pueden consumirse por adelantado.');
    const removeGracious=oldType==='dia_agraciable'&&type!=='dia_agraciable';
    const addGracious=type==='dia_agraciable'&&oldType!=='dia_agraciable';
-   if(needsBalance&&grants-enjoyed+(removeGracious?1:0)-(addGracious?1:0)<0)throw Error('No hay saldo suficiente de días graciables.');
+   if(needsBalance&&grants-enjoyed+(removeGracious?1:0)-(addGracious?1:0)<0)throw Error('No hay saldo suficiente de permisos extraordinarios.');
    if(a.exists()&&a.data().source==='admin'&&type!=='guardia')tx.delete(attRef);
    if(willRemoveGuard)tx.delete(guardRef);
    if(type==='guardia'){
@@ -1284,7 +1315,7 @@ $('monthlyStateSave').addEventListener('click',async()=>{
     tx.set(sitRef,{userId:uid,workDate:date,type,updatedBy:auth.currentUser.uid,updatedAt:serverTimestamp()});
    }else if(s.exists())tx.delete(sitRef);
   });
-  finishMonthlySave('Estado guardado correctamente. Los saldos se actualizan también en Consulta de días.');
+  finishMonthlySave('Estado guardado correctamente. Los saldos de salientes, días adicionales y permisos extraordinarios se actualizan en Guardias.');
  }catch(err){$('monthlyStateMessage').textContent='No se pudo guardar: '+(err.code||err.message)+'. Comprueba el historial antes de reintentar.';}
  finally{endSave();}
 });
@@ -1292,7 +1323,7 @@ function monthlyStatusInfo(type,present,guard){
  if(present&&guard)return ['P/G','Presente / Guardia','monthly-combined'];
  if(present)return ['P','Presente','monthly-present'];
  if(type){
-  const codes={permiso_oficial:['PO','Permiso oficial'],saliente_guardia:['SG','Saliente de guardia'],asuntos_particulares:['AP','Asuntos particulares'],dia_agraciable:['AG','Día graciable'],baja_medica:['BJ','Baja médica'],comision_servicio:['CS','Comisión de servicio'],descanso:['DL','Descanso / no laborable'],ausencia_justificada:['AJ','Ausencia justificada'],ausencia_sin_justificar:['AS','Ausencia sin justificar'],otros:['OT','Otros'],dia_adicional:['AD','Día adicional'],saliente_servicio:['SS','Saliente de servicio (histórico)']};
+  const codes={permiso_oficial:['PO','Permiso oficial'],saliente_guardia:['SG','Saliente de guardia'],asuntos_particulares:['AP','Asuntos particulares'],dia_agraciable:['AG','Permiso extraordinario'],baja_medica:['BJ','Baja médica'],comision_servicio:['CS','Comisión de servicio'],descanso:['DL','Descanso / no laborable'],ausencia_justificada:['AJ','Ausencia justificada'],ausencia_sin_justificar:['AS','Ausencia sin justificar'],otros:['OT','Otros'],dia_adicional:['AD','Día adicional'],saliente_servicio:['SS','Saliente de servicio (histórico)']};
   const found=codes[type]||['OT',SITUATION_LABELS[type]||'Otra situación'];
   return [found[0],found[1],type==='ausencia_sin_justificar'?'monthly-exception':type==='ausencia_justificada'?'monthly-absence':'monthly-leave'];
  }
@@ -1311,7 +1342,8 @@ async function refreshMonthly(confirmedSaveMessage=null){
  $('monthlyReload').disabled=true;$('monthlyStatus').textContent=confirmedSaveMessage?confirmedSaveMessage+' Actualizando la vista…':'Consultando trabajadores y estados del mes…';
  try{
   const between=collectionName=>getDocs(query(collection(db,collectionName),where('workDate','>=',start),where('workDate','<=',end)));
-  const [users,attendance,situations,guards,grants]=await Promise.all([getDocs(collection(db,'users')),between('attendance'),between('presenceSituations'),between('guardDuties'),between('graciousDays')]);
+  const [base,attendance,situations,guards,grants]=await Promise.all([adminBaseDocs(),between('attendance'),between('presenceSituations'),between('guardDuties'),between('graciousDays')]);
+  const users=base.users;
   if(version!==monthlyVersion||uid!==activeUid||!adminReady||currentSection!=='monthly')return;
   const workers=users.docs.map(d=>({id:d.id,...d.data()})).filter(p=>p.role==='employee'&&p.active===true).sort(compareWorkerOrder);
   monthlyWorkersCache=workers;
@@ -1319,6 +1351,7 @@ async function refreshMonthly(confirmedSaveMessage=null){
   const attendanceSet=new Set(attendanceMap.keys());
   const situationMap=new Map(situations.docs.map(d=>d.data()).filter(d=>d.userId&&d.workDate).map(d=>[d.userId+'_'+d.workDate,d.type]));
   const guardSet=new Set(guards.docs.map(d=>d.data()).filter(d=>d.userId&&d.workDate).map(d=>d.userId+'_'+d.workDate));
+  const additionalUsageThisMonth=situations.docs.filter(d=>d.data().type==='dia_adicional').length;
   monthlyVisibleSituations=new Map([...situationMap].map(([key,value])=>[key,value]));monthlyVisibleAttendance=new Set(attendanceSet);monthlyVisibleGuards=new Set(guardSet);monthlyVisibleAdminAttendance=new Set([...attendanceMap].filter(([,a])=>a?.source==='admin').map(([key])=>key));
   const grantMap=new Map(grants.docs.map(d=>d.data()).filter(d=>d.userId&&d.workDate).map(d=>[d.userId+'_'+d.workDate,d]));
   const head=$('monthlyHead'),body=$('monthlyRows');head.replaceChildren();body.replaceChildren();
@@ -1327,9 +1360,9 @@ async function refreshMonthly(confirmedSaveMessage=null){
   for(let d=1;d<=days;d++){const date=new Date(Date.UTC(Number(month.slice(0,4)),Number(month.slice(5,7))-1,d)),weekDay=date.getUTCDay();const th=document.createElement('th');th.textContent=d+' '+dayNames[weekDay];th.title=date.toLocaleDateString('es-ES',{timeZone:'UTC',weekday:'long',day:'numeric',month:'long'});th.classList.add((weekDay===0||weekDay===6)?'month-weekend':'month-weekday');header.appendChild(th)}
   head.appendChild(header);
   for(const person of workers){const tr=document.createElement('tr'),name=document.createElement('th');name.className='month-person';name.scope='row';name.textContent=person.fullName||person.email||person.id;const controls=document.createElement('span');controls.className='monthly-order-controls no-print';for(const [direction,symbol,title] of [[-1,'↑','Subir trabajador'],[1,'↓','Bajar trabajador']]){const btn=document.createElement('button');btn.type='button';btn.className='monthly-order-btn';btn.textContent=symbol;btn.title=title+' en registro e informes';btn.setAttribute('aria-label',title+' '+(person.fullName||person.email||''));btn.disabled=(direction===-1&&workers[0].id===person.id)||(direction===1&&workers[workers.length-1].id===person.id);btn.addEventListener('click',()=>moveWorkerInMonthly(person.id,direction));controls.appendChild(btn)}name.appendChild(controls);tr.appendChild(name);
-   for(let d=1;d<=days;d++){const date=start.slice(0,8)+String(d).padStart(2,'0'),key=person.id+'_'+date,[code,label,style]=monthlyStatusInfo(situationMap.get(key),attendanceSet.has(key),guardSet.has(key));const td=document.createElement('td');td.dataset.person=person.id;td.dataset.date=date;td.tabIndex=0;const weekDay=new Date(Date.UTC(Number(date.slice(0,4)),Number(date.slice(5,7))-1,Number(date.slice(8,10)))).getUTCDay();td.classList.add((weekDay===0||weekDay===6)?'month-weekend':'month-weekday');const mark=document.createElement('span');mark.className='monthly-cell '+style+(attendanceMap.get(key)?.source==='admin'?' monthly-manual-present':'');mark.textContent='';const mainCode=document.createElement('span');mainCode.className='monthly-grant-state';mainCode.textContent=code;mark.appendChild(mainCode);td.title=(person.fullName||person.email||'Trabajador')+' · '+date.split('-').reverse().join('/')+' · '+label+(attendanceMap.get(key)?.source==='admin'?' (presencia anotada por administración; motivo: '+(attendanceMap.get(key)?.reason||'no indicado')+')':'')+(grantMap.has(key)?' · Concesión: +'+grantMap.get(key).quantity+' día(s) graciable(s). Motivo: '+(grantMap.get(key).note||'—'):'');mark.setAttribute('aria-label',label+(attendanceMap.get(key)?.source==='admin'?' (registro administrativo)':'')+(grantMap.has(key)?' · Concesión de '+grantMap.get(key).quantity+' día(s) graciable(s)':''));if(grantMap.has(key)){mark.classList.add('monthly-has-grant');td.classList.add('monthly-grant-cell');const flag=document.createElement('span');flag.className='monthly-grant-flag';flag.textContent='+'+grantMap.get(key).quantity+'AG';mark.appendChild(flag)}td.appendChild(mark);td.addEventListener('click',e=>{if(monthlySkipDragClick){monthlySkipDragClick=false;return;}openMonthlyStateEditor(person,date,situationMap.get(key),attendanceSet.has(key),guardSet.has(key),attendanceMap.get(key)?.source==='admin',e.shiftKey)});td.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&$('monthlyTable').classList.contains('monthly-status-editing')){e.preventDefault();openMonthlyStateEditor(person,date,situationMap.get(key),attendanceSet.has(key),guardSet.has(key),attendanceMap.get(key)?.source==='admin')}});tr.appendChild(td)}body.appendChild(tr)}
+   for(let d=1;d<=days;d++){const date=start.slice(0,8)+String(d).padStart(2,'0'),key=person.id+'_'+date,[code,label,style]=monthlyStatusInfo(situationMap.get(key),attendanceSet.has(key),guardSet.has(key));const td=document.createElement('td');td.dataset.person=person.id;td.dataset.date=date;td.tabIndex=0;const weekDay=new Date(Date.UTC(Number(date.slice(0,4)),Number(date.slice(5,7))-1,Number(date.slice(8,10)))).getUTCDay();td.classList.add((weekDay===0||weekDay===6)?'month-weekend':'month-weekday');const mark=document.createElement('span');mark.className='monthly-cell '+style+(attendanceMap.get(key)?.source==='admin'?' monthly-manual-present':'');mark.textContent='';const mainCode=document.createElement('span');mainCode.className='monthly-grant-state';mainCode.textContent=code;mark.appendChild(mainCode);td.title=(person.fullName||person.email||'Trabajador')+' · '+date.split('-').reverse().join('/')+' · '+label+(attendanceMap.get(key)?.source==='admin'?' (presencia anotada por administración; motivo: '+(attendanceMap.get(key)?.reason||'no indicado')+')':'')+(grantMap.has(key)?' · Concesión: +'+grantMap.get(key).quantity+' permiso(s) extraordinario(s). Motivo: '+(grantMap.get(key).note||'—'):'');mark.setAttribute('aria-label',label+(attendanceMap.get(key)?.source==='admin'?' (registro administrativo)':'')+(grantMap.has(key)?' · Concesión de '+grantMap.get(key).quantity+' permiso(s) extraordinario(s)':''));if(grantMap.has(key)){mark.classList.add('monthly-has-grant');td.classList.add('monthly-grant-cell');const flag=document.createElement('span');flag.className='monthly-grant-flag';flag.textContent='+'+grantMap.get(key).quantity+'AG';mark.appendChild(flag)}td.appendChild(mark);td.addEventListener('click',e=>{if(monthlySkipDragClick){monthlySkipDragClick=false;return;}openMonthlyStateEditor(person,date,situationMap.get(key),attendanceSet.has(key),guardSet.has(key),attendanceMap.get(key)?.source==='admin',e.shiftKey)});td.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&$('monthlyTable').classList.contains('monthly-status-editing')){e.preventDefault();openMonthlyStateEditor(person,date,situationMap.get(key),attendanceSet.has(key),guardSet.has(key),attendanceMap.get(key)?.source==='admin')}});tr.appendChild(td)}body.appendChild(tr)}
   if(!workers.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=days+1;td.textContent='No hay trabajadores activos registrados.';tr.appendChild(td);body.appendChild(tr)}
-  $('monthlyStatus').textContent=(confirmedSaveMessage?confirmedSaveMessage+' ':'')+workers.length+' trabajador(es) · '+days+' días · '+month.split('-').reverse().join('/')+'. «Sin registro» no equivale a ausencia. En pantallas estrechas, desplaza la tabla horizontalmente.';
+  $('monthlyStatus').textContent=(confirmedSaveMessage?confirmedSaveMessage+' ':'')+'Guardias del mes: '+guards.size+' (+1 saliente y +1 día adicional por guardia) · Días adicionales disfrutados este mes: '+additionalUsageThisMonth+' · '+workers.length+' trabajador(es) · '+days+' días · '+month.split('-').reverse().join('/')+'. «Sin registro» no equivale a ausencia. En pantallas estrechas, desplaza la tabla horizontalmente.';
   if(pendingMonthlyJump && pendingMonthlyJump.date.slice(0,7)===month){
    const {uid:targetUid,date:targetDate}=pendingMonthlyJump;pendingMonthlyJump=null;
    if(!$('monthlyTable').classList.contains('monthly-status-editing'))$('monthlyEditStatus').click();
@@ -1347,13 +1380,13 @@ function showSection(section){if(!adminReady)return;currentSection=section;$('re
 for(const [id,value] of [['tabReports','reports'],['tabDepartments','departments'],['tabStaff','staff'],['tabGuards','guards'],['tabMonthly','monthly']])$(id).addEventListener('click',()=>showSection(value));
 function statusNode(active){const e=document.createElement('span');e.className='state'+(active===true?'':' off');e.textContent=active===true?'Activa/o':'Inactiva/o';return e}
 function optionsStaffDepartments(){const sel=$('staffDept'),v=sel.value;sel.replaceChildren();const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent='Selecciona una dependencia';sel.appendChild(placeholder);for(const dep of managedDeps){const opt=document.createElement('option');opt.value=dep.id;opt.textContent=dep.name+(dep.active===true?'':' (inactiva)');sel.appendChild(opt)}sel.value=managedDeps.some(d=>d.id===v)?v:''}
-function renderDepartmentList(){const body=$('deptRows');body.replaceChildren();if(!managedDeps.length){const r=document.createElement('tr');tableCell(r,'No hay dependencias.').colSpan=3;body.appendChild(r)}for(const d of managedDeps.filter(d=>d.active===true||$('showRetiredDeps').checked)){const r=document.createElement('tr');tableCell(r,d.name);const s=document.createElement('td');s.appendChild(statusNode(d.active));r.appendChild(s);const td=document.createElement('td');const b=document.createElement('button');b.className='ghost mini';b.type='button';b.textContent='Editar';b.addEventListener('click',()=>{$('deptEditId').value=d.id;$('deptName').value=d.name;$('deptActive').checked=d.active===true;$('deptName').focus();displayManagerMessage('deptMessage','Editando '+d.name)});td.appendChild(b);const x=document.createElement('button');x.type='button';x.className=d.active===true?'danger-icon':'ghost mini';x.textContent=d.active===true?'×':'Restaurar';x.title=d.active===true?'Retirar dependencia':'Restaurar dependencia';x.setAttribute('aria-label',x.title);x.addEventListener('click',async()=>{const linked=managedStaff.filter(p=>p.departmentId===d.id&&p.active===true);if(d.active===true&&linked.length){displayManagerMessage('deptMessage','No puedes retirar esta dependencia: tiene '+linked.length+' trabajador(es) activo(s). Reasígnalos o retíralos primero.',true);return}if(!confirm(d.active===true?'¿Retirar «'+d.name+'»? Desaparecerá del listado activo, conservando su historial.':'¿Restaurar «'+d.name+'»?'))return; x.disabled=true;try{await updateDoc(doc(db,'departments',d.id),{active:d.active!==true});await loadManagement();clearDashboard();displayManagerMessage('deptMessage',d.active===true?'Dependencia retirada.':'Dependencia restaurada.')}catch(e){displayManagerMessage('deptMessage','No se pudo cambiar el estado: '+(e.code||e.message),true)}finally{x.disabled=false}});td.appendChild(x);r.appendChild(td);body.appendChild(r)}}
-function renderStaffList(){const body=$('staffRows');body.replaceChildren();if(!managedStaff.length){const r=document.createElement('tr');tableCell(r,'No hay trabajadores.').colSpan=4;body.appendChild(r)}const deptMap=new Map(managedDeps.map(d=>[d.id,d.name]));for(const p of managedStaff.filter(p=>p.active===true)){const r=document.createElement('tr');tableCell(r,p.fullName||p.email||p.id);tableCell(r,deptMap.get(p.departmentId)||'Sin asignar');const td=document.createElement('td');td.appendChild(statusNode(p.active));r.appendChild(td);const action=document.createElement('td'),b=document.createElement('button');b.className='ghost mini';b.type='button';b.textContent='Editar';b.addEventListener('click',()=>{$('staffUid').value=p.id;$('newCredentials').classList.add('hidden');$('staffModeLabel').textContent='Editando ficha existente';$('staffSave').textContent='Guardar cambios';$('staffName').value=p.fullName||'';$('staffEmail').value=p.email||'';$('staffEmail').readOnly=false;$('staffDept').value=p.departmentId||'';$('staffActive').checked=p.active===true;$('staffName').focus();displayManagerMessage('staffMessage','Editando '+(p.fullName||p.email))});action.appendChild(b);const x=document.createElement('button');x.type='button';x.className=p.active===true?'danger-icon':'ghost mini';x.textContent=p.active===true?'×':'Restaurar';x.title=p.active===true?'Retirar trabajador':'Restaurar trabajador';x.setAttribute('aria-label',x.title);x.addEventListener('click',async()=>{if(p.active!==true&&!managedDeps.some(d=>d.id===p.departmentId&&d.active===true)){displayManagerMessage('staffMessage','Asigna primero una dependencia activa para restaurar a esta persona.',true);return}if(!confirm(p.active===true?'¿Retirar a «'+(p.fullName||p.email)+'»? No podrá volver a fichar, pero se conservará el historial.':'¿Restaurar a «'+(p.fullName||p.email)+'»?'))return;x.disabled=true;try{await updateDoc(doc(db,'users',p.id),{active:p.active!==true});await loadManagement();clearDashboard();displayManagerMessage('staffMessage',p.active===true?'Trabajador retirado.':'Trabajador restaurado.')}catch(e){displayManagerMessage('staffMessage','No se pudo cambiar el estado: '+(e.code||e.message),true)}finally{x.disabled=false}});action.appendChild(x);r.appendChild(action);body.appendChild(r)}}
-async function loadManagement(){if(!adminReady)return;const uid=activeUid;try{const [d,u]=await Promise.all([getDocs(collection(db,'departments')),getDocs(collection(db,'users'))]);if(!adminReady||activeUid!==uid)return;managedDeps=d.docs.map(doc=>({id:doc.id,...doc.data()})).sort((a,b)=>(a.name||'').localeCompare(b.name||'','es'));managedStaff=u.docs.map(doc=>({id:doc.id,...doc.data()})).filter(p=>p.role==='employee').sort((a,b)=>(a.fullName||'').localeCompare(b.fullName||'','es'));renderDepartmentList();optionsStaffDepartments();renderStaffList()}catch(e){displayManagerMessage(currentSection==='departments'?'deptMessage':'staffMessage','No se pudieron cargar los datos: '+(e.code||e.message),true)}}
+function renderDepartmentList(){const body=$('deptRows');body.replaceChildren();if(!managedDeps.length){const r=document.createElement('tr');tableCell(r,'No hay dependencias.').colSpan=3;body.appendChild(r)}for(const d of managedDeps.filter(d=>d.active===true||$('showRetiredDeps').checked)){const r=document.createElement('tr');tableCell(r,d.name);const s=document.createElement('td');s.appendChild(statusNode(d.active));r.appendChild(s);const td=document.createElement('td');const b=document.createElement('button');b.className='ghost mini';b.type='button';b.textContent='Editar';b.addEventListener('click',()=>{$('deptEditId').value=d.id;$('deptName').value=d.name;$('deptActive').checked=d.active===true;$('deptName').focus();displayManagerMessage('deptMessage','Editando '+d.name)});td.appendChild(b);const x=document.createElement('button');x.type='button';x.className=d.active===true?'danger-icon':'ghost mini';x.textContent=d.active===true?'×':'Restaurar';x.title=d.active===true?'Retirar dependencia':'Restaurar dependencia';x.setAttribute('aria-label',x.title);x.addEventListener('click',async()=>{const linked=managedStaff.filter(p=>p.departmentId===d.id&&p.active===true);if(d.active===true&&linked.length){displayManagerMessage('deptMessage','No puedes retirar esta dependencia: tiene '+linked.length+' trabajador(es) activo(s). Reasígnalos o retíralos primero.',true);return}if(!confirm(d.active===true?'¿Retirar «'+d.name+'»? Desaparecerá del listado activo, conservando su historial.':'¿Restaurar «'+d.name+'»?'))return; x.disabled=true;try{await updateDoc(doc(db,'departments',d.id),{active:d.active!==true});invalidateAdminBaseCache();await loadManagement();clearDashboard();displayManagerMessage('deptMessage',d.active===true?'Dependencia retirada.':'Dependencia restaurada.')}catch(e){displayManagerMessage('deptMessage','No se pudo cambiar el estado: '+(e.code||e.message),true)}finally{x.disabled=false}});td.appendChild(x);r.appendChild(td);body.appendChild(r)}}
+function renderStaffList(){const body=$('staffRows');body.replaceChildren();if(!managedStaff.length){const r=document.createElement('tr');tableCell(r,'No hay trabajadores.').colSpan=4;body.appendChild(r)}const deptMap=new Map(managedDeps.map(d=>[d.id,d.name]));for(const p of managedStaff.filter(p=>p.active===true)){const r=document.createElement('tr');tableCell(r,p.fullName||p.email||p.id);tableCell(r,deptMap.get(p.departmentId)||'Sin asignar');const td=document.createElement('td');td.appendChild(statusNode(p.active));r.appendChild(td);const action=document.createElement('td'),b=document.createElement('button');b.className='ghost mini';b.type='button';b.textContent='Editar';b.addEventListener('click',()=>{$('staffUid').value=p.id;$('newCredentials').classList.add('hidden');$('staffModeLabel').textContent='Editando ficha existente';$('staffSave').textContent='Guardar cambios';$('staffName').value=p.fullName||'';$('staffEmail').value=p.email||'';$('staffEmail').readOnly=false;$('staffDept').value=p.departmentId||'';$('staffActive').checked=p.active===true;$('staffName').focus();displayManagerMessage('staffMessage','Editando '+(p.fullName||p.email))});action.appendChild(b);const x=document.createElement('button');x.type='button';x.className=p.active===true?'danger-icon':'ghost mini';x.textContent=p.active===true?'×':'Restaurar';x.title=p.active===true?'Retirar trabajador':'Restaurar trabajador';x.setAttribute('aria-label',x.title);x.addEventListener('click',async()=>{if(p.active!==true&&!managedDeps.some(d=>d.id===p.departmentId&&d.active===true)){displayManagerMessage('staffMessage','Asigna primero una dependencia activa para restaurar a esta persona.',true);return}if(!confirm(p.active===true?'¿Retirar a «'+(p.fullName||p.email)+'»? No podrá volver a fichar, pero se conservará el historial.':'¿Restaurar a «'+(p.fullName||p.email)+'»?'))return;x.disabled=true;try{await updateDoc(doc(db,'users',p.id),{active:p.active!==true});invalidateAdminBaseCache();await loadManagement();clearDashboard();displayManagerMessage('staffMessage',p.active===true?'Trabajador retirado.':'Trabajador restaurado.')}catch(e){displayManagerMessage('staffMessage','No se pudo cambiar el estado: '+(e.code||e.message),true)}finally{x.disabled=false}});action.appendChild(x);r.appendChild(action);body.appendChild(r)}}
+async function loadManagement(){if(!adminReady)return;const uid=activeUid;try{const base=await adminBaseDocs(),d=base.deps,u=base.users;if(!adminReady||activeUid!==uid)return;managedDeps=d.docs.map(doc=>({id:doc.id,...doc.data()})).sort((a,b)=>(a.name||'').localeCompare(b.name||'','es'));managedStaff=u.docs.map(doc=>({id:doc.id,...doc.data()})).filter(p=>p.role==='employee').sort((a,b)=>(a.fullName||'').localeCompare(b.fullName||'','es'));renderDepartmentList();optionsStaffDepartments();renderStaffList()}catch(e){displayManagerMessage(currentSection==='departments'?'deptMessage':'staffMessage','No se pudieron cargar los datos: '+(e.code||e.message),true)}}
 function resetDeptForm(){$('deptForm').reset();$('deptEditId').value='';$('deptActive').checked=true;displayManagerMessage('deptMessage','')}
 function resetStaffForm(){$('staffForm').reset();$('staffUid').value='';$('staffActive').checked=true;$('staffEmail').readOnly=false;$('newCredentials').classList.remove('hidden');$('staffModeLabel').textContent='Nuevo trabajador · Alta de cuenta y ficha';$('staffSave').textContent='Crear trabajador';displayManagerMessage('staffMessage','')}
 $('showRetiredDeps').addEventListener('change',renderDepartmentList);$('deptCancel').addEventListener('click',resetDeptForm);$('staffCancel').addEventListener('click',resetStaffForm);$('deptReload').addEventListener('click',loadManagement);$('staffReload').addEventListener('click',loadManagement);
-$('deptForm').addEventListener('submit',async e=>{e.preventDefault();if(!adminReady)return;const name=$('deptName').value.trim(),id=$('deptEditId').value,active=$('deptActive').checked;if(!name||name.length>100)return displayManagerMessage('deptMessage','Nombre inválido.',true);const b=$('deptSave');b.disabled=true;try{if(id)await updateDoc(doc(db,'departments',id),{name,active});else await addDoc(collection(db,'departments'),{name,active,createdAt:serverTimestamp()});resetDeptForm();displayManagerMessage('deptMessage','Dependencia guardada.');await loadManagement();clearDashboard()}catch(err){displayManagerMessage('deptMessage','Error al guardar: '+(err.code||err.message),true)}finally{b.disabled=false}});
+$('deptForm').addEventListener('submit',async e=>{e.preventDefault();if(!adminReady)return;const name=$('deptName').value.trim(),id=$('deptEditId').value,active=$('deptActive').checked;if(!name||name.length>100)return displayManagerMessage('deptMessage','Nombre inválido.',true);const b=$('deptSave');b.disabled=true;try{if(id)await updateDoc(doc(db,'departments',id),{name,active});else await addDoc(collection(db,'departments'),{name,active,createdAt:serverTimestamp()});resetDeptForm();displayManagerMessage('deptMessage','Dependencia guardada.');invalidateAdminBaseCache();await loadManagement();clearDashboard()}catch(err){displayManagerMessage('deptMessage','Error al guardar: '+(err.code||err.message),true)}finally{b.disabled=false}});
 
 $('staffForm').addEventListener('submit',async e=>{
   e.preventDefault();if(!adminReady||!auth.currentUser)return;
@@ -1410,7 +1443,7 @@ $('staffForm').addEventListener('submit',async e=>{
       displayManagerMessage('staffMessage','Cuenta y ficha creadas correctamente. Ya puede iniciar sesión el trabajador.');
     }
     $('staffForm').reset();$('staffUid').value='';$('newCredentials').classList.remove('hidden');$('staffEmail').readOnly=false;$('staffModeLabel').textContent='Nuevo trabajador · Alta de cuenta y ficha';$('staffSave').textContent='Crear trabajador';$('staffActive').checked=true;
-    await loadManagement();clearDashboard();
+    invalidateAdminBaseCache();await loadManagement();clearDashboard();
   }catch(err){displayManagerMessage('staffMessage','No se pudieron guardar los cambios: '+(err.code||err.message)+(err.code==='permission-denied'?' (revisa la regla loginAliases de Firestore).':''),true)}
   finally{b.disabled=false;$('staffPassword').value=''}
 });
@@ -1498,7 +1531,7 @@ function applyLiveAttendanceToMonthly(data){
  mark.classList.add(style);
  if(admin)mark.classList.add('monthly-manual-present');
  const main=mark.querySelector('.monthly-grant-state');if(main)main.textContent=code;
- mark.setAttribute('aria-label',label+(admin?' (registro administrativo)':'')+(mark.classList.contains('monthly-has-grant')?' · Concesión graciable':''));
+ mark.setAttribute('aria-label',label+(admin?' (registro administrativo)':'')+(mark.classList.contains('monthly-has-grant')?' · Concesión permiso extraordinario':''));
  td.title=(monthlyWorkersCache.find(p=>p.id===data.userId)?.fullName||'Trabajador')+' · '+data.workDate.split('-').reverse().join('/')+' · '+label;
  if(monthlySelectedState?.person.id===data.userId&&monthlySelectedDates.includes(data.workDate)){
   monthlySelectedState.present=true;
@@ -1513,7 +1546,7 @@ function startLiveAttendance(uid){
  liveStatus('● Conectando avisos de fichajes…');
  const currentDay=liveAttendanceDay;
  // Solo se leen nombres de las personas autenticadas como administrador.
- getDocs(collection(db,'users')).then(snap=>{
+ adminBaseDocs().then(({users:snap})=>{
   if(!adminReady||activeUid!==uid||liveAttendanceDay!==currentDay)return;
   liveAttendanceNames=new Map(snap.docs.map(d=>[d.id,d.data().fullName||d.data().email||'Trabajador']));
  }).catch(()=>{});
@@ -1569,7 +1602,7 @@ onAuthStateChanged(auth,async user=>{
  if(workerCloseTimer!==null){clearInterval(workerCloseTimer);workerCloseTimer=null;}
  const uid=user?.uid||null,epoch=++workerEpoch;
  stopLiveAttendance();
- activeUid=uid;adminReady=false;employee=null;employeeBusy=false;workerReady(false);
+ activeUid=uid;adminReady=false;invalidateAdminBaseCache();employee=null;employeeBusy=false;workerReady(false);
  ++requestVersion;clearDashboard();currentSection='reports';
  $('reportsView').classList.remove('hidden');$('manageDepartments').classList.add('hidden');$('manageStaff').classList.add('hidden');$('manageGuards').classList.add('hidden');$('monthlyView').classList.add('hidden');
  $('dashboard').classList.add('hidden');$('workerView').classList.add('hidden');
@@ -1587,6 +1620,8 @@ onAuthStateChanged(auth,async user=>{
    if(admin.exists()&&admin.data().active===true){
      if(chosenAccess==='worker'){postLogoutMessage='Esta cuenta es de administrador. Selecciona «Administrador» para entrar.';await signOut(auth);return;}
      adminReady=true;$('login').classList.add('hidden');$('dashboard').classList.remove('hidden');$('adminEmail').textContent=user.email||'';
+     // Precarga compartida de personal y dependencias; las otras pestañas reutilizan la misma petición.
+     adminBaseDocs().catch(()=>{});
      startLiveAttendance(uid);
      await refresh();return;
    }
